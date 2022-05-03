@@ -8,6 +8,7 @@ import reminders from "../../images/icon-reminders.svg";
 import calendar from "../../images/icon-calendar.svg";
 import Media from "react-media";
 import "./Header.scss";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   const [featuresClicked, setFeaturesClicked] = useState(false);
@@ -53,47 +54,57 @@ export default function Header() {
   useOutsideAlerter(companyDropdown, companyClicked, companyMenu, () => setCompanyClicked(false));
 
   return (
-    <header>
-      <img src={logo} className="logo-img" alt="logo" />
-      <ul className="left">
-        <li onClick={handleFeatureClick} ref={featuresMenu}>
-          Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
-        </li>
-        <li onClick={handleCompanyClick} ref={companyMenu}>
-          Company {companyClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
-        </li>
-        <li>Careers</li>
-        <li>About</li>
-      </ul>
-      <ul className="right">
-        <li>Login</li>
-        <li>Register</li>
-      </ul>
+    <Media query="(min-width: 850px)">
+      {(matches) => (
+        <>
+          {matches ? (
+            <header>
+              <img src={logo} className="logo-img" alt="logo" />
+              <ul className="left">
+                <li onClick={handleFeatureClick} ref={featuresMenu}>
+                  Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
+                </li>
+                <li onClick={handleCompanyClick} ref={companyMenu}>
+                  Company {companyClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
+                </li>
+                <li>Careers</li>
+                <li>About</li>
+              </ul>
+              <ul className="right">
+                <li>Login</li>
+                <li>Register</li>
+              </ul>
 
-      <ul ref={featuresDropdown} className={`${featuresClicked ? "dropdown-visible" : "dropdown-hidden"} features-dropdown`}>
-        <li>
-          <img src={todo} alt="todo" />
-          &nbsp;Todo List
-        </li>
-        <li>
-          <img src={calendar} alt="calendar" />
-          &nbsp;Calendar
-        </li>
-        <li>
-          <img src={reminders} alt="reminders" />
-          &nbsp;Reminders
-        </li>
-        <li>
-          <img src={planning} alt="planning" />
-          &nbsp;Planning
-        </li>
-      </ul>
+              <ul ref={featuresDropdown} className={`${featuresClicked ? "display" : "hide"} features-dropdown`}>
+                <li>
+                  <img src={todo} alt="todo" />
+                  Todo List
+                </li>
+                <li>
+                  <img src={calendar} alt="calendar" />
+                  Calendar
+                </li>
+                <li>
+                  <img src={reminders} alt="reminders" />
+                  Reminders
+                </li>
+                <li>
+                  <img src={planning} alt="planning" />
+                  Planning
+                </li>
+              </ul>
 
-      <ul ref={companyDropdown} className={`${companyClicked ? "dropdown-visible" : "dropdown-hidden"} company-dropdown`}>
-        <li>History</li>
-        <li>Our Team</li>
-        <li>Blog</li>
-      </ul>
-    </header>
+              <ul ref={companyDropdown} className={`${companyClicked ? "display" : "hide"} company-dropdown`}>
+                <li>History</li>
+                <li>Our Team</li>
+                <li>Blog</li>
+              </ul>
+            </header>
+          ) : (
+            <MobileMenu />
+          )}
+        </>
+      )}
+    </Media>
   );
 }

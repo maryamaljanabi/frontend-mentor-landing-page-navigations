@@ -1,0 +1,73 @@
+@import "./../../styles/_variables.scss";
+
+.header-mobile {
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .menu {
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .dimmer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.111);
+    }
+  }
+
+  .dropdown-container {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    background: white;
+    width: 70vw;
+    height: 100vh;
+
+    .top,
+    .bottom {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 80px auto 0 20px;
+
+      li {
+        list-style: none;
+        cursor: pointer;
+        transition: 0.3s all;
+      }
+
+      .sub-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        margin: 20px;
+        img {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .bottom {
+      align-items: center;
+      margin-top: 30px;
+      li {
+        &:last-child {
+          border-radius: 10px;
+          border: 1px solid $MediumGray;
+          padding: 10px 60px;
+        }
+      }
+    }
+  }
+}

@@ -33,11 +33,6 @@ header {
     }
   }
 
-  .arrow {
-    margin-left: 5px;
-    margin-bottom: 2px;
-  }
-
   .right {
     position: relative;
     display: flex;
@@ -114,12 +109,5 @@ header {
         color: $SemiBlack;
       }
     }
-  }
-
-  .dropdown-visible {
-    display: block;
-  }
-  .dropdown-hidden {
-    display: none;
   }
 }
