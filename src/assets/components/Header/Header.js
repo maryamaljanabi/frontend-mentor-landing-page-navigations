@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import logo from "../../images/logo.svg";
 import downArrow from "../../images/icon-arrow-down.svg";
+import upArrow from "../../images/icon-arrow-up.svg";
 import todo from "../../images/icon-todo.svg";
 import planning from "../../images/icon-planning.svg";
 import reminders from "../../images/icon-reminders.svg";
@@ -52,12 +53,8 @@ export default function Header() {
     <header>
       <img src={logo} className="logo-img" alt="logo" />
       <ul className="left">
-        <li onClick={handleFeatureClick}>
-          Features <img src={downArrow} alt="down-arrow" className="down-arrow" />
-        </li>
-        <li onClick={handleCompanyClick}>
-          Company <img src={downArrow} alt="down-arrow" className="down-arrow" />
-        </li>
+        <li onClick={handleFeatureClick}>Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}</li>
+        <li onClick={handleCompanyClick}>Company {companyClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}</li>
         <li>Careers</li>
         <li>About</li>
       </ul>
