@@ -1,0 +1,126 @@
+@import './../../styles/_variables.scss';
+
+header{
+    display: flex;
+    font-size: 14px;
+    color: $MediumGray;
+
+    .logo-img{
+        height: 25px;
+        margin-top: auto;
+    }
+    
+    .left{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        margin-left: 50px;
+
+        li{
+            list-style: none;
+            cursor: pointer;
+            transition: 0.3s all;
+
+            &:first-child{
+                font-weight: bold;
+            }
+            
+            &:hover{
+                color: $SemiBlack;
+            }
+        }
+
+    }
+
+    .down-arrow{
+        margin-left: 5px;
+        margin-bottom: 2px;
+    }
+
+    .right{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        margin-left: auto;
+        float: right;
+
+        li{
+            list-style: none;
+            cursor: pointer;
+            transition: 0.3s all;
+
+            &:last-child{
+                border-radius: 10px;
+                border: 1px solid $MediumGray;
+                padding: 10px 20px;
+            }
+
+            &:hover{
+                transform: translateY(5px);
+                color: $SemiBlack;
+            }
+        }
+    }
+
+    // floating dropdowns
+    .features-dropdown{
+        position: absolute;
+        top: 65px;
+        left: 120px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 0px 23px 6px rgba(0,0,0,0.1); 
+        box-shadow: 0px 0px 23px 6px rgba(0,0,0,0.1);
+
+        li{
+            list-style: none;
+            margin: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            img{
+                margin-right: 10px;
+            }
+
+            &:hover{
+                color: $SemiBlack;
+            }
+        }
+    }
+
+    .company-dropdown{
+        position: absolute;
+        top: 65px;
+        left: 290px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 0px 23px 6px rgba(0,0,0,0.1); 
+        box-shadow: 0px 0px 23px 6px rgba(0,0,0,0.1);
+
+        li{
+            list-style: none;
+            margin: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover{
+                color: $SemiBlack;
+            }
+        }
+    }
+
+    .dropdown-visible{
+        display: block;
+    }
+    .dropdown-hidden{
+        display: none;
+    }
+}
