@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import "./ContentText.scss";
 
 export default function ContentText() {
@@ -12,6 +13,8 @@ export default function ContentText() {
       <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
 
       <div className="button">Learn more</div>
+
+      <Footer />
     </div>
   );
 }
