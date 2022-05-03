@@ -31,4 +31,19 @@
       background: transparent;
     }
   }
+
+  @include tablet {
+    max-width: fit-content;
+    margin: 20px;
+    h1 {
+      font-size: 25px;
+    }
+    .button {
+      margin: auto;
+    }
+    p {
+      margin: 20px 0;
+      font-size: 14px;
+    }
+  }
 }

@@ -6,6 +6,7 @@ import todo from "../../images/icon-todo.svg";
 import planning from "../../images/icon-planning.svg";
 import reminders from "../../images/icon-reminders.svg";
 import calendar from "../../images/icon-calendar.svg";
+import Media from "react-media";
 import "./Header.scss";
 
 export default function Header() {
@@ -53,7 +54,7 @@ export default function Header() {
 
   return (
     <header>
-      <img src={logo} className="logo" alt="logo" />
+      <img src={logo} className="logo-img" alt="logo" />
       <ul className="left">
         <li onClick={handleFeatureClick} ref={featuresMenu}>
           Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}

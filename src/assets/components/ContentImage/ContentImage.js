@@ -1,11 +1,10 @@
 import React from "react";
-import mainImage from "./../../images/image-hero-desktop.png";
 import "./ContentImage.scss";
 
-export default function ContentImage() {
+export default function ContentImage({ image }) {
   return (
     <div className="content-image">
-      <img src={mainImage} alt="main" className="main-image" />
+      <img src={image} alt="main" className="main-image" />
     </div>
   );
 }

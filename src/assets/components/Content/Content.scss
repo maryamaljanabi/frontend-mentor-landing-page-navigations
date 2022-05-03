@@ -1,6 +1,21 @@
+@import "./../../styles/variables";
+
 .content {
   margin: 80px 100px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: row;
   justify-content: space-between;
+}
+
+.content-mobile {
+  margin: 80px 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @include small-tablet {
+    margin: 10px;
+  }
 }

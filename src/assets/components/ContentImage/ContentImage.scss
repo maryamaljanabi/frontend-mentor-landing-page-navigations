@@ -1,6 +1,12 @@
+@import "./../../styles/variables";
+
 .content-image {
   max-width: 50%;
   .main-image {
-    width: 400px;
+    max-width: 400px;
+  }
+
+  @include tablet {
+    max-width: fit-content;
   }
 }

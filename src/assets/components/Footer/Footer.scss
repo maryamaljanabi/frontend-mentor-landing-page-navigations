@@ -1,3 +1,5 @@
+@import "./../../styles/variables";
+
 .footer {
   margin-top: 100px;
   display: flex;
@@ -5,5 +7,15 @@
 
   .footer-item {
     height: 22px;
+  }
+
+  @include tablet {
+    margin-top: 50px;
+  }
+
+  @include small-tablet {
+    .footer-item {
+      height: 15px;
+    }
   }
 }
