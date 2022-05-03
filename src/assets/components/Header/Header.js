@@ -13,6 +13,8 @@ export default function Header() {
   const [companyClicked, setCompanyClicked] = useState(false);
   const featuresDropdown = useRef(null);
   const companyDropdown = useRef(null);
+  const featuresMenu = useRef(null);
+  const companyMenu = useRef(null);
 
   const handleFeatureClick = () => {
     setFeaturesClicked(!featuresClicked);
@@ -27,13 +29,13 @@ export default function Header() {
   /**
    * Hook that alerts clicks outside of the passed ref
    */
-  function useOutsideAlerter(ref, flag, hideDropdownFcn) {
+  function useOutsideAlerter(ref, flag, menuRef, hideDropdownFcn) {
     useEffect(() => {
       /**
        * Alert if clicked on outside of element
        */
       function handleClickOutside(event) {
-        if (flag && ref.current && !ref.current.contains(event.target)) {
+        if (flag && ref.current && !ref.current.contains(event.target) && !menuRef.current.contains(event.target)) {
           hideDropdownFcn();
         }
       }
@@ -46,15 +48,19 @@ export default function Header() {
     }, [ref, flag]);
   }
 
-  useOutsideAlerter(featuresDropdown, featuresClicked, () => setFeaturesClicked(false));
-  useOutsideAlerter(companyDropdown, companyClicked, () => setCompanyClicked(false));
+  useOutsideAlerter(featuresDropdown, featuresClicked, featuresMenu, () => setFeaturesClicked(false));
+  useOutsideAlerter(companyDropdown, companyClicked, companyMenu, () => setCompanyClicked(false));
 
   return (
     <header>
-      <img src={logo} className="logo-img" alt="logo" />
+      <img src={logo} className="logo" alt="logo" />
       <ul className="left">
-        <li onClick={handleFeatureClick}>Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}</li>
-        <li onClick={handleCompanyClick}>Company {companyClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}</li>
+        <li onClick={handleFeatureClick} ref={featuresMenu}>
+          Features {featuresClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
+        </li>
+        <li onClick={handleCompanyClick} ref={companyMenu}>
+          Company {companyClicked ? <img src={upArrow} alt="up-arrow" className="arrow" /> : <img src={downArrow} alt="down-arrow" className="arrow" />}
+        </li>
         <li>Careers</li>
         <li>About</li>
       </ul>

@@ -5,7 +5,7 @@ import "./ContentImage.scss";
 export default function ContentImage() {
   return (
     <div className="content-image">
-      <img src={mainImage} alt="main-image" className="main-image" />
+      <img src={mainImage} alt="main" className="main-image" />
     </div>
   );
 }
