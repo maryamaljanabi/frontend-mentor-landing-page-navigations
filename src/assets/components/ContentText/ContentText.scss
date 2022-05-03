@@ -1,0 +1,34 @@
+@import "./../../styles/variables";
+
+.content-text {
+  max-width: 50%;
+  margin: 80px 50px 50px 0;
+
+  h1 {
+    font-size: 65px;
+  }
+  p {
+    max-width: 400px;
+    margin: 40px 20px 40px 0;
+    color: $MediumGray;
+    line-height: 1.5rem;
+    font-size: 15px;
+  }
+  .button {
+    font-weight: bold;
+    font-size: 15px;
+    color: $SemiWhite;
+    background: $SemiBlack;
+    border: 1px solid $SemiBlack;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &:hover {
+      color: $SemiBlack;
+      background: transparent;
+    }
+  }
+}
