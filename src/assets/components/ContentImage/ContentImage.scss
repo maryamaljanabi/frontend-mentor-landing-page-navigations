@@ -9,4 +9,10 @@
   @include tablet {
     max-width: fit-content;
   }
+
+  @include mobile {
+    .main-image {
+      max-width: 310px;
+    }
+  }
 }
